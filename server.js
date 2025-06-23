@@ -1,6 +1,7 @@
 import express from "express";
 import router from "./src/routes/auth.routes.js";
 import notFound from "./src/utils/pathNotFound.js"
+import error from "./src/utils/error.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -11,6 +12,7 @@ app.use("/auth", router)
 app.use("/", router)
 
 
+app.use(error)
 
 app.use(notFound)
 
